@@ -25,8 +25,11 @@ import {
   filterVehicles,
   sortVehicle,
 } from './data.js';
+
 //Variables
 //films
+
+// let Chart;
 const bodyContent = document.querySelector('body');
 
 const containerFilm = document.querySelector('.movies-content');
@@ -162,6 +165,7 @@ function loadCharts() {
       ],
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -206,6 +210,7 @@ function loadChartsProducer() {
       ],
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -285,46 +290,44 @@ function renderCharacters(list) {
   list.forEach((character) => {
     const divCharacter = document.createElement('div');
     divCharacter.className = 'character';
+    const divImgChar = document.createElement('div');
+    divImgChar.className = 'imgCharacter';
     const imgCharacter = document.createElement('img');
-    imgCharacter.className = 'imgCharacter';
     imgCharacter.src = character.img;
     imgCharacter.alt = character.name;
-    const divChardesc = document.createElement('div');
-    divChardesc.className = 'character-desc';
-    const divName = document.createElement('div');
-    divName.className = 'nameCharacter';
-    const pName = document.createElement('p');
-    pName.innerText = character.name;
-    const divGender = document.createElement('div');
-    divGender.className = 'genderCharacter';
-    const pGender = document.createElement('p');
-    pGender.innerText = `Gender: ${character.gender}`;
-    const divAge = document.createElement('div');
-    divAge.className = 'ageCharacter';
+    const infoCharacter = document.createElement('div');
+    infoCharacter.className = 'infoCharacter';
+    const name = document.createElement('h3');
+    name.innerText = character.name;
     const pAge = document.createElement('p');
     pAge.innerText = `Age: ${character.age}`;
-    const divSpecie = document.createElement('div');
-    divSpecie.className = 'specieCharacter';
+    const pGender = document.createElement('p');
+    pGender.innerText = `Gender: ${character.gender}`;
     const pSpecie = document.createElement('p');
     pSpecie.innerText = `Specie: ${character.specie}`;
 
+    if (character.gender === 'Male') {
+      divCharacter.classList.add('male');
+    } else if (character.gender === 'Female') {
+      divCharacter.classList.add('female');
+    } else {
+      divCharacter.classList.add('notAssigned');
+    }
+
+    infoCharacter.appendChild(name);
+    infoCharacter.appendChild(pAge);
+    infoCharacter.appendChild(pGender);
+    infoCharacter.appendChild(pSpecie);
+    divImgChar.appendChild(imgCharacter);
+    divCharacter.appendChild(divImgChar);
+    divCharacter.appendChild(infoCharacter);
     containerChar.appendChild(divCharacter);
-    divCharacter.appendChild(imgCharacter);
-    divCharacter.appendChild(divChardesc);
-    divChardesc.appendChild(divName);
-    divName.appendChild(pName);
-    divChardesc.appendChild(divSpecie);
-    divSpecie.appendChild(pSpecie);
-    divChardesc.appendChild(divGender);
-    divGender.appendChild(pGender);
-    divChardesc.appendChild(divAge);
-    divAge.appendChild(pAge);
   });
 }
 
 //EventListener para mostrar personajes según pelicula, género, especie y orden
 
-let btnChar = document.querySelector('.btn_filter');
+let btnChar = document.querySelector('#btn_filter');
 
 if (bodyContent.classList.contains('charactersBody')) {
   renderCharacters(listCharacters());
@@ -379,13 +382,13 @@ if (bodyContent.classList.contains('charactersBody')) {
 
 function btn_filterGender() {
   let list = listCharacters();
-  let selectMovie = document.querySelector('.filmchar-Film-items').value;
+  let selectMovie = document.querySelector('#filmchar-opFilm').value;
   let listByMovie = filterByMovie(selectMovie, list);
-  let selectGender = document.querySelector('.filmchar-Gender-items').value;
+  let selectGender = document.querySelector('#filmchar-opGender').value;
   let listByGender = filterByGender(selectGender, listByMovie);
-  let selectSpecie = document.querySelector('.filmchar-Specie-items').value;
+  let selectSpecie = document.querySelector('#filmchar-opSpecie').value;
   let listBySpecie = filterBySpecie(selectSpecie, listByGender);
-  let selectSort = document.querySelector('.filmchar-character-by').value;
+  let selectSort = document.querySelector('#opt-characters').value;
   if (selectSort === '1') {
     listBySpecie.sort(compareByNameChar);
   } else if (selectSort === '2') {
@@ -502,7 +505,6 @@ if (bodyContent.classList.contains('bodyLocations')) {
 
     datosBusquedaLocations.filmName = e.target.value;
     films = filterMovie(films);
-    console.log(films);
   });
 
   // Clima
@@ -526,11 +528,11 @@ if (bodyContent.classList.contains('bodyLocations')) {
         datosBusquedaLocations.climate === '' &&
         datosBusquedaLocations.terrain === ''
       ) {
-        console.log(films);
+        // console.log(films);
         loadLocation(films);
       } else {
         // Load locations only
-        console.log(allLocations);
+        // console.log(allLocations);
         loadPlaces(allLocations);
       }
     }
@@ -687,7 +689,7 @@ function loadChartsClimate() {
 }
 
 function cleanLocationHTML(container) {
-  console.log(container);
+  // console.log(container);
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }

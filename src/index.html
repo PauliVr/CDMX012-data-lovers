@@ -15,10 +15,10 @@
 <body class="films">
   <header>
     <div class="nav-bar">
-      <img class='logo-g' src='https://i.postimg.cc/FHMnx5gB/custom-Logo.png' alt='logo-totoro' />
+      <img class="logo-g" src="https://i.postimg.cc/FHMnx5gB/custom-Logo.png" alt="logo-totoro" />
       <ul class="menus">
         <div class="enlaces">
-          <li><a class='active-page' href="/src/index.html">Home</a></li>
+          <li><a class="active-page" href="/src/index.html">Home</a></li>
           <li><a href="/src/characters.html">Characters</a></li>
           <li><a href="/src/locations.html">Locations</a></li>
           <li><a href="/src/vehicles.html">Vehicles</a></li>
@@ -46,7 +46,7 @@
 
         <div class="mySlides fade">
           <div class="numbertext">3 / 6</div>
-          <img src='https://i.postimg.cc/L4VXvQW3/Porco-Rosso-1.jpg' border='0' alt='Porco-Rosso' style="width:100%" />
+          <img src="https://i.postimg.cc/L4VXvQW3/Porco-Rosso-1.jpg" border="0" alt="Porco-Rosso" style="width:100%" />
           <div class="text">Porco Rosso Airplane</div>
         </div>
 
@@ -106,30 +106,25 @@
     </section>
 
     <section class="filters container">
-      <div class="films-filter-sort">
+      <h1 class="titleSection">Filter By</h1>
 
+      <div class="films-filter-sort">
         <div class="films-filter">
-          <label for="films-option" class="label-films">By Release Year</label>
+          <label for="films-option" class="label-films">Release Year</label>
           <select name="films-option" id="films-year" class="films-filter-items">
             <option value="" disabled selected>Selecciona</option>
           </select>
         </div>
-        <!-- <div class="films-filter">
-          <label for="films-option" class="label-films">By Raiting</label>
-          <select name="films-option" id="films-rt" class="films-filter-items">
-            <option value="" disabled selected>Selecciona</option>
-          </select>
-        </div> -->
 
         <div class="films-filter">
-          <label for="films-option" class="label-films">By Director</label>
+          <label for="films-option" class="label-films">Director</label>
           <select name="films-option" id="films-Director" class="films-filter-items">
             <option value="" disabled selected>Selecciona</option>
           </select>
         </div>
 
         <div class="films-filter">
-          <label for="films-option" class="label-films">By Producer</label>
+          <label for="films-option" class="label-films">Producer</label>
           <select name="films-option" id="films-Producer" class="films-filter-items">
             <option value="" disabled selected>Selecciona</option>
           </select>
@@ -139,8 +134,8 @@
           <label for="films-op" class="label-films">Sort Films By</label>
           <select name="films-op" id="films-op" class="films-filter-items">
             <option value="" disabled selected>Selecciona</option>
-            <option value="raiting-up">Raiting Score (from best ranked to worst ranked) </option>
-            <option value="raiting-down">Raiting Score (from worst ranked to best ranked) </option>
+            <option value="raiting-up">Raiting Score (from best to worst) </option>
+            <option value="raiting-down">Raiting Score (from worst to best) </option>
             <option value="date-up">Release Date (from recent to oldest)</option>
             <option value="date-down">Release Date (from oldest to recent)</option>
             <option value="a-z">From A to Z</option>
@@ -148,8 +143,8 @@
           </select>
         </div>
 
-        <button type="button" id='btn' class='button'>Filter</button>
-        <button type="button" id="btnReset" class='button'>Clean filters</button>
+        <button type="button" id="btn" class="button">Filter</button>
+        <button type="button" id="btnReset" class="button">Clean filters</button>
       </div>
     </section>
 
@@ -166,20 +161,20 @@
 
     </section>
 
-    <section class="facts container" >
+    <section class="facts container">
       <h1>Ghibli Facts</h1>
       <div class="fun-facts">
         <div class="graph">
-          <h3 class="fun-fact-text-one" ></h3>
+          <h3 class="fun-fact-text-one"></h3>
           <canvas id="myChart"></canvas>
         </div>
         <div class="graph">
-          <h3 class="fun-fact-text-two" ></h3>
+          <h3 class="fun-fact-text-two"></h3>
           <canvas id="myChartOne"></canvas>
         </div>
       </div>
       <!-- <div class="background">
-        <img class='factsImg' src='https://i.postimg.cc/Y0Xf8t3J/5WVktYO.jpg' border='0' alt='5WVktYO' />
+        <img class="factsImg' src='https://i.postimg.cc/Y0Xf8t3J/5WVktYO.jpg' border='0' alt='5WVktYO' />
         <div class="white-box "></div>
       </div> -->
 
@@ -192,7 +187,7 @@
       <p>©Studio Ghibli All Rigths Reserved</p>
       <div class="autors">
         <p>Created by</p>
-        <p>Paulette Villegas & Saraí González</p>
+        <p>Paulette Villegas y Saraí González</p>
       </div>
     </section>
 

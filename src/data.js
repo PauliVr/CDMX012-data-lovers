@@ -33,7 +33,7 @@ export function filterFilm() {
   return films;
 }
 
-function filterYear(film) {
+export function filterYear(film) {
   if (datosBusqueda.year) {
     return film.release_date === datosBusqueda.year;
   }
@@ -297,7 +297,7 @@ export function filterVehicles(vehicles) {
   return arrayVehicle;
 }
 
-export function sortVehicle(sort,allVehicles) {
+export function sortVehicle(sort, allVehicles) {
   if (sort === 'a-z') {
     allVehicles.sort((a, b) => a['name'].localeCompare(b['name']));
   } else if (sort === 'z-a') {
@@ -316,7 +316,7 @@ export function listCharacters() {
       arrayChar.push(character);
     });
   });
-  console.log(arrayChar);
+
   return arrayChar;
 }
 
@@ -382,7 +382,7 @@ export function calculusGender() {
   let total = male + female;
   let percentMale = (male / total) * 100;
   let percentFemale = (female / total) * 100;
-  console.log(percentMale, percentFemale);
+
   return [percentMale, percentFemale];
 }
 
@@ -405,6 +405,6 @@ export function calculusAge() {
   let total = child + adult;
   let percentChild = (child / total) * 100;
   let percentAdult = (adult / total) * 100;
-  console.log(percentAdult, percentChild);
+
   return [percentChild, percentAdult];
 }
