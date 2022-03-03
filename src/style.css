@@ -921,3 +921,28 @@ h1 {
     padding: 0px;
   }
 }
+
+#scrollbtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  outline: none;
+  background-color: rgb(246, 246, 246);
+  color: #1572a1;
+  border-color: #1572a1;
+  border-style: solid;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 60%;
+}
+
+#scrollbtn:hover {
+  background-color: rgb(174, 202, 255);
+  border-style: solid;
+  border-color: rgb(174, 202, 255);
+  color: white;
+  font-weight: bold;
+}

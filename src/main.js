@@ -29,7 +29,6 @@ import {
 
 //Variables
 //films
-
 // let Chart;
 const bodyContent = document.querySelector('body');
 
@@ -972,4 +971,28 @@ function recibeAllVehicles() {
       allVehicles.push(vehicle);
     });
   });
+}
+
+//scroll to top button
+let mybuttonScroll = document.getElementById('scrollbtn');
+// cuando el usuario baja 50px del top del documento, se muestra el boton
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybuttonScroll.style.display = 'block';
+  } else {
+    mybuttonScroll.style.display = 'none';
+  }
+}
+
+// cuando el usuario da click, lo lleva hacia el top del documento
+document.getElementById('scrollbtn').onclick = function () {
+  topFunction();
+};
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
