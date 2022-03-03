@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bodyVehicles">
+  <header>
+    <div class="nav-bar">
+      <img class="logo-g" src="https://i.postimg.cc/FHMnx5gB/custom-Logo.png" alt="logo-totoro" />
+      <ul class="menus">
+        <div class="enlaces">
+          <li><a href="/src/index.html">Home</a></li>
+          <li><a href="/src/characters.html">Characters</a></li>
+          <li><a href="/src/locations.html">Locations</a></li>
+          <li><a class="active-page" href="/src/vehicles.html">Vehicles</a></li>
+        </div>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1>Vehicles</h1>
+
+    <section class="filters container">
+      <h1>Filter By</h1>
+      <div class="films-filter-sort">
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Type</label>
+          <select name="films-option" id="selected-type" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+          </select>
+        </div>
+
+
+        <div class="films-sort">
+          <label for="films-op" class="label-films">Sort Films</label>
+          <select name="sort-locations" id="sort-vehicles" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+            <option value="a-z">From A to Z</option>
+            <option value="z-a">From Z to A </option>
+          </select>
+        </div>
+
+        <button type="submit" id="btn_veh" class="button">Filter</button>
+        <button type="submit" id="btn_veh_reset" class="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="vehicles container">
+      <div class="vehicles-content">
+        <!-- 
+        <div class="vehicle">
+          <div class="vehicle-img">
+            <img src="https://i.postimg.cc/L4VXvQW3/Porco-Rosso-1.jpg" alt="Porco Rosso Air Ship" />
+          </div>
+          <div class="vehicle-info">
+            <p class="vehicle-name">Air Destroyer Goliath</p>
+            <div class="div-pilot">
+              <span class="name-class-bold">Pilot: </span>
+              <p class="pilots-name"> Colonel Muska</p>
+            </div>
+            <div class="div-class">
+              <span class="name-class-bold">Vehicle class:</span>
+              <p class="vehicle-class"> Airship</p>
+            </div>
+
+            <p class="info-vehicle">"A military airship utilized by the government to access Laputa"</p>
+          </div>
+        </div> -->
+
+
+      </div>
+    </section>
+
+    <button onclick id="scrollbtn" title="Go to top">Top</button>
+
+  </main>
+
+  <footer>
+    <section class="footer-nav">
+      <p>©Studio Ghibli All Rigths Reserved</p>
+      <div class="autors">
+        <p>Created by</p>
+        <p>Paulette Villegas    Saraí González</p>
+      </div>
+    </section>
+
+  </footer>
+
+  <!--<div id="root"></div>-->
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

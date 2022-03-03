@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bodyLocations">
+  <header>
+    <div class="nav-bar">
+      <img class="logo-g" src="https://i.postimg.cc/FHMnx5gB/custom-Logo.png" alt="logo-totoro" />
+      <ul class="menus">
+        <div class="enlaces">
+          <li><a href="/src/index.html">Home</a></li>
+          <li><a href="/src/characters.html">Characters</a></li>
+          <li><a class="active-page" href="/src/locations.html">Locations</a></li>
+          <li><a href="/src/vehicles.html">Vehicles</a></li>
+        </div>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1>Locations</h1>
+
+    <section class="filters container">
+      <h1>Filter By</h1>
+      <div class="films-filter-sort">
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Films</label>
+          <select name="selected-film" id="selected-film" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Climate</label>
+          <select name="films-option" id="selected-climate" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Terrain</label>
+          <select name="films-option" id="selected-terrain" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+          </select>
+        </div>
+
+
+        <div class="films-sort">
+          <label for="films-op" class="label-films">Sort Films</label>
+          <select name="sort-locations" id="sort-locations" class="films-filter-items">
+            <option value="" disabled selected>Select</option>
+            <option value="a-z">From A to Z</option>
+            <option value="z-a">From Z to A </option>
+          </select>
+        </div>
+
+        <button type="submit" id="btn_loc" class="button">Filter</button>
+        <button type="submit" id="btn_loc_reset" class="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="locations container">
+      <div class="locations-content">
+
+        <!-- <div class="location">
+          <img src="https://i.postimg.cc/hjNCHb0H/230-2307062-princess-mononoke-forest-spirit.jpg"
+            alt="princess-mononoke-forest-spirit" />
+          <div class="info">
+            <p class="locations-title">Spirit Forest</p>
+            <p class="movie-title ">Castle in te sky</p>
+            <p class="info-loc">Climate: Tropical</p>
+            <p class="info-loc">Terrain: Forest</p>
+          </div>
+        </div> -->
+
+      </div>
+    </section>
+
+    <button onclick id="scrollbtn" title="Go to top">Top</button>
+
+    <section class="facts container" id="FunFacts">
+      <h1>Ghibli Facts</h1>
+      <div class="fun-facts">
+        <div class="graph">
+          <h3 class="fun-fact-text-one" id=></h3>
+          <canvas id="myChartTwo"></canvas>
+        </div>
+        <div class="graph">
+          <h3 class="fun-fact-text-two" id=></h3>
+          <canvas id="myChartThree"></canvas>
+        </div>
+      </div>
+      <!-- <div class="background">
+                <img class="factsImg" src="https://i.postimg.cc/Y0Xf8t3J/5WVktYO.jpg" border="0" alt="5WVktYO" />
+                <div class="white-box "></div>
+              </div> -->
+
+    </section>
+
+  </main>
+
+  <footer>
+    <section class="footer-nav">
+      <p>©Studio Ghibli All Rigths Reserved</p>
+      <div class="autors">
+        <p>Created by</p>
+        <p>Paulette Villegas   Saraí González</p>
+      </div>
+    </section>
+
+  </footer>
+
+  <!--<div id="root"></div>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+    integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

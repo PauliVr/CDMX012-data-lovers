@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="films">
+  <header>
+    <div class="nav-bar">
+      <img class="logo-g" src="https://i.postimg.cc/FHMnx5gB/custom-Logo.png" alt="logo-totoro" />
+      <ul class="menus">
+        <div class="enlaces">
+          <li><a class="active-page" href="/src/index.html">Home</a></li>
+          <li><a href="/src/characters.html">Characters</a></li>
+          <li><a href="/src/locations.html">Locations</a></li>
+          <li><a href="/src/vehicles.html">Vehicles</a></li>
+        </div>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="carrousel">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 6</div>
+          <img src="https://i.postimg.cc/qMM0CpSk/image723-6052.jpg" alt="Characters party" style="width:100%" />
+          <div class="text">Ghibli Characters</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 6</div>
+          <img src="https://i.postimg.cc/c1c0HvD9/An-Yp3-Wd-studio-ghibli-wallpaper.jpg"
+            alt="An-Yp3-Wd-studio-ghibli-wallpaper" style="width:100%" />
+          <div class="text">Howl´s Moving Castle</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 6</div>
+          <img src="https://i.postimg.cc/L4VXvQW3/Porco-Rosso-1.jpg" border="0" alt="Porco-Rosso" style="width:100%" />
+          <div class="text">Porco Rosso Airplane</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 6</div>
+          <img src="https://i.postimg.cc/J0R8x8h5/1112.jpg" alt="1112" style="width:100%" />
+          <div class="text">Sunflower House</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 6</div>
+          <img src="https://i.postimg.cc/yxnHrGg4/17-Cli-Ufq-X-1.jpg" alt="17-Cli-Ufq-X-1" style="width:100%" />
+          <div class="text">Adriano´s Hotel</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">6 / 6</div>
+          <img src="https://i.postimg.cc/RF79whv0/Howls-Castle.jpg" alt="Howls-Castle" style="width:100%" />
+          <div class="text">Howl´s Castle</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)"> &#10094;</a>
+        <a class="next" onclick="plusSlides(1)"> &#10095;</a>
+
+      </div>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+      </div>
+
+    </section>
+
+    <section class="about container">
+      <div class="about-text">
+        <h1>STUDIO GHIBLI</h1>
+        <p>The studio was founded on June 15, 1985 by the directors Hayao Miyazaki, Isao Takahata and the producer
+          Toshio
+          Suzuki.
+          It is a japanese animation film studio and it is currently best known as one of the best animation film
+          studios of
+          all
+          times. Some of the Studio Ghibli’s films have been nominated in International Film Festivals like the Academy
+          Awards for
+          Best Animated Feature. Among the films nominated are: Spirited Away (2001), Howl’s Moving Castle (2004), The
+          Wind
+          Rises
+          (2013), The Tale of the Princess Kaguya (2013) and When Marnie was there (2014). Spirited Away won the Golden
+          Bear
+          in
+          2002 and the 2003 Academy Aawrds for Best Animated Feature.</p>
+      </div>
+    </section>
+
+    <section class="filters container">
+      <h1 class="titleSection">Filter By</h1>
+
+      <div class="films-filter-sort">
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Release Year</label>
+          <select name="films-option" id="films-year" class="films-filter-items">
+            <option value="" disabled selected>Selecciona</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Director</label>
+          <select name="films-option" id="films-Director" class="films-filter-items">
+            <option value="" disabled selected>Selecciona</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="films-option" class="label-films">Producer</label>
+          <select name="films-option" id="films-Producer" class="films-filter-items">
+            <option value="" disabled selected>Selecciona</option>
+          </select>
+        </div>
+
+        <div class="films-sort">
+          <label for="films-op" class="label-films">Sort Films By</label>
+          <select name="films-op" id="films-op" class="films-filter-items">
+            <option value="" disabled selected>Selecciona</option>
+            <option value="raiting-up">Raiting Score (from best to worst) </option>
+            <option value="raiting-down">Raiting Score (from worst to best) </option>
+            <option value="date-up">Release Date (from recent to oldest)</option>
+            <option value="date-down">Release Date (from oldest to recent)</option>
+            <option value="a-z">From A to Z</option>
+            <option value="z-a">From Z to A </option>
+          </select>
+        </div>
+
+
+        <button type="button" id="btn" class="button">Filter</button>
+        <button type="button" id="btnReset" class="button">Clean filters</button>
+      </div>
+    </section>
+
+    <section class="movies container">
+      <div class="movies-content">
+        <!-- <div class="movie" data-id='olnisdoung'>
+          <a href="https://postimg.cc/wtC1hrjf" target="_blank"><img
+              src="https://i.postimg.cc/XJJ90SSb/When-Marnie-Was-There.jpg" alt="When-Marnie-Was-There" /></a>
+          <div class="title">
+            <p>When Marnie Was There</p>
+          </div>
+        </div> -->
+      </div>
+
+    </section>
+
+    <button onclick id="scrollbtn" title="Go to top">Top</button>
+
+    <section class="facts container">
+      <h1>Ghibli Facts</h1>
+      <div class="fun-facts">
+        <div class="graph">
+          <h3 class="fun-fact-text-one"></h3>
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="graph">
+          <h3 class="fun-fact-text-two"></h3>
+          <canvas id="myChartOne"></canvas>
+        </div>
+      </div>
+      <!-- <div class="background">
+        <img class="factsImg' src='https://i.postimg.cc/Y0Xf8t3J/5WVktYO.jpg' border='0' alt='5WVktYO' />
+        <div class="white-box "></div>
+      </div> -->
+
+    </section>
+
+  </main>
+
+  <footer>
+    <section class="footer-nav">
+      <p>©Studio Ghibli All Rigths Reserved</p>
+      <div class="autors">
+        <p>Created by</p>
+        <p>Paulette Villegas y Saraí González</p>
+      </div>
+    </section>
+
+  </footer>
+
+  <!--<div id="root"></div>-->
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+    integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

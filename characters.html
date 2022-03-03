@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DataLovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="charactersBody">
+  <header>
+    <div class="nav-bar">
+      <img class="logo-g" src="https://i.postimg.cc/FHMnx5gB/custom-Logo.png" alt="logo-totoro" />
+      <ul class="menus">
+        <div class="enlaces">
+          <li><a href="/src/index.html">Home</a></li>
+          <li><a class="active-page" href="/src/characters.html">Characters</a></li>
+          <li><a href="/src/locations.html">Locations</a></li>
+          <li><a href="/src/vehicles.html">Vehicles</a></li>
+        </div>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1>Characters</h1>
+    <section class="filters container" id="characters_section">
+      <h1 class="titleSection">Filter By</h1>
+
+      <div class="films-filter-sort">
+        <div class="films-filter">
+          <label for="options-film" class="label-films ">Film</label>
+          <select name="option-film" id="filmchar-opFilm" class="films-filter-items">
+            <option value="">Select one</option>
+            <option value="Castle in the Sky">Castle in the Sky</option>
+            <option value="My Neighbor Totoro">My Neighbor Totoro</option>
+            <option value="Kiki's Delivery Service">Kikis Delivery Service</option>
+            <option value="Grave of the Fireflies">Grave of the Fireflies</option>
+            <option value="Only Yesterday">Only Yesterday</option>
+            <option value="Porco Rosso">Porco Rosso</option>
+            <option value="Pom Poko">Pom Poko</option>
+            <option value="Whisper of the Heart">Whisper of the Heart</option>
+            <option value="Princess Mononoke">Princess Mononoke</option>
+            <option value="My Neighbors the Yamadas">My Neighbors the Yamadas</option>
+            <option value="Spirited Away">Spirited Away</option>
+            <option value="The Cat Returns">The Cat Returns</option>
+            <option value="Howl's Moving Castle">Howl's Moving Castle</option>
+            <option value="Tales from Earthsea">Tales from Earthsea</option>
+            <option value="Ponyo on the Cliff by the Sea">Ponyo on the Cliff by the Sea</option>
+            <option value="The Secret World of Arrietty">The Secret World of Arrietty</option>
+            <option value="From Up on Poppy Hill">From Up on Poppy Hill</option>
+            <option value="The Wind Rises">The Wind Rises</option>
+            <option value="The Tale of the Princess Kaguya">The Tale of the Princess Kaguya</option>
+            <option value="When Marnie Was There">When Marnie Was There</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="options-gender" class="label-films"> Gender</label>
+          <select name="optionGender" id="filmchar-opGender" class="films-filter-items">
+            <option value="">Select one</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="NA">NA</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="options-specie" class="label-films">Specie</label>
+          <select name="optionSpecie" id="filmchar-opSpecie" class="films-filter-items">
+            <option value="">Select one</option>
+            <option value="Human">Human</option>
+            <option value="Totoro">Totoro</option>
+            <option value="Cat">Cat</option>
+            <option value="Witch">Witch</option>
+            <option value="Witch/Human">Witch/Human</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Raccoon dog">Raccoon Dog</option>
+            <option value="Red elk">Red elk</option>
+            <option value="Spirit">Spirit</option>
+            <option value="Wolf">Wolf</option>
+            <option value="Deity">Deity</option>
+            <option value="Deity, Dragon">Deity, Dragon</option>
+            <option value="Spirit of The White Fox">Spirit of The White Fox</option>
+            <option value="Demon">Demon</option>
+            <option value="Bird">Bird</option>
+            <option value="Dog">Dog</option>
+            <option value="Human/Scarecrow">Human/Scarecrow</option>
+            <option value="Arch-mage/Human">Arch-mage/Human</option>
+            <option value="Fish/Human">Fish/Human</option>
+            <option value="Borrower">Borrower</option>
+            <option value="unknown">unkown</option>
+          </select>
+        </div>
+
+        <div class="films-filter">
+          <label for="characters-sort" class="label-films">Sort Characters By</label>
+          <select name="optionCharacters" id="opt-characters" class="films-filter-items">
+            <option value="">Select one</option>
+            <option value="1">From A to Z</option>
+            <option value="2">From Z to A</option>
+            <option value="3">Age (from youngest to oldest)</option>
+            <option value="4">Age (from oldest to youngest)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-filterChar ">
+        <input id="btn_filter" class="button" type="submit" value="Filter">
+      </div>
+    </section>
+
+    <section class="characters-container">
+      <div class="characters-content container">
+      </div>
+    </section>
+
+    <button onclick id="scrollbtn" title="Go to top">Top</button>
+
+    <section class="facts container">
+      <h1>Ghibli's Characters Facts</h1>
+      <div class="fun-facts">
+        <div class="graph">
+          <label class="fun-fact-text-two">Did you know that 52% are male characters and 48% are female
+            among the Studio Ghibli Films?</label>
+          <canvas id="funFactChartGen"></canvas>
+        </div>
+        <div class="graph">
+          <label class="fun-fact-text-two">Did you know that 75% are adult characters, while only 25% are
+            children among the Studio Ghibli Films?</label>
+          <canvas id="funFactChartAge"></canvas>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <section class="footer-nav">
+      <p>©Studio Ghibli All Rigths Reserved</p>
+      <div class="autors">
+        <p>Created by</p>
+        <p>Paulette Villegas y Saraí González</p>
+      </div>
+    </section>
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>
