@@ -205,7 +205,9 @@ function containerFilmClick() {
     if (e.target.classList.contains('movie')) {
       console.log(e.target);
       const id = e.target.dataset.id;
-      const url = new URL('http://127.0.0.1:5501/src/movie.html');
+      const url = new URL(
+        'https://paulivr.github.io/CDMX012-data-lovers/movie.html'
+      );
       url.searchParams.append('id', id);
       window.location.href = url.href;
       console.log(url);
@@ -973,13 +975,23 @@ function recibeAllVehicles() {
   });
 }
 
-//scroll to top button
-let mybuttonScroll = document.getElementById('scrollbtn');
-// cuando el usuario baja 50px del top del documento, se muestra el boton
-window.onscroll = function () {
-  scrollFunction();
-};
+let mybuttonScroll;
 
+if (!bodyContent.classList.contains('movieSelected')) {
+  mybuttonScroll = document.getElementById('scrollbtn');
+
+  //scroll to top button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  // cuando el usuario da click, lo lleva hacia el top del documento
+  document.getElementById('scrollbtn').onclick = function () {
+    topFunction();
+  };
+}
+
+// cuando el usuario baja 50px del top del documento, se muestra el boton
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybuttonScroll.style.display = 'block';
@@ -988,10 +1000,6 @@ function scrollFunction() {
   }
 }
 
-// cuando el usuario da click, lo lleva hacia el top del documento
-document.getElementById('scrollbtn').onclick = function () {
-  topFunction();
-};
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
