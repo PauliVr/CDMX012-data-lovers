@@ -299,6 +299,10 @@ ul {
   gap: 35px;
 }
 
+.pointerEvent {
+  pointer-events: none;
+}
+
 .movie img {
   width: 250px;
   height: 350px;
@@ -307,6 +311,7 @@ ul {
 
 .movie {
   position: relative;
+  cursor: pointer;
 }
 
 .title {
@@ -532,18 +537,6 @@ h1 {
 
 /*Sara*/
 
-.film-title {
-  width: 710px;
-  height: 162px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 64px;
-  line-height: 78px;
-  color: #22577e;
-  margin-top: 5%;
-  margin-left: 33%;
-}
-
 .film-characters {
   margin-top: 10%;
   margin-left: 30%;
@@ -598,18 +591,18 @@ h1 {
   flex-direction: row;
   border-radius: 25px;
   margin: 50px 0;
-  width: 80%;
+  width: 90%;
 }
 
 .infoCharacter {
   line-height: 25px;
-  font-size: 20px;
+  font-size: 16px;
   margin: 35px 5px;
 }
 
 .infoCharacter h3 {
   margin-bottom: 5%;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -718,6 +711,12 @@ h1 {
     height: 159px;
     margin: 10px 20px;
   }
+  .infoCharacter {
+    font-size: 20px;
+  }
+  .infoCharacter h3 {
+    font-size: 25px;
+  }
   .characters-content {
     justify-content: space-between;
   }
@@ -784,5 +783,141 @@ h1 {
   }
   .info-vehicle {
     font-size: 25px;
+  }
+}
+
+.film-title {
+  margin: 35px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 78px;
+  color: #22577e;
+}
+
+.film {
+  width: 100%;
+  border-radius: 26px;
+}
+
+.film-synopsis {
+  font-size: 18px;
+  margin-top: 3%;
+}
+
+.film-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.director,
+.producer,
+.release-date,
+.raiting-score {
+  font-weight: bold;
+}
+
+.main-description {
+  font-style: normal;
+  font-size: 20px;
+  line-height: 29px;
+  color: #22577e;
+  width: 100%;
+}
+
+.film-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+.film-buttons input {
+  display: inline-block;
+  background-color: #fffdf9;
+  color: #1572a1;
+  cursor: pointer;
+  padding: 8px 12px;
+  height: 80px;
+  font-size: 18px;
+  border-color: #1572a1;
+}
+
+.input-c {
+  position: relative;
+}
+
+.input-c img {
+  position: absolute;
+  right: 15px;
+}
+
+.film-buttons input:hover {
+  background-color: #1572a1;
+  color: #fffdf9;
+  transition: 1s ease;
+}
+
+.film-buttons .characters {
+  border-radius: 12px 0px 0px 12px;
+}
+
+.film-buttons .vehicles {
+  border-radius: 0px 12px 12px 0px;
+}
+
+.film-characters {
+  margin-top: 10%;
+  margin-left: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.film-characters h1 {
+  width: 710px;
+  height: 100px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 50px;
+  color: #22577e;
+}
+
+.film-characters .filmTitle {
+  margin-left: -18%;
+}
+
+.imgFilm {
+  text-align: center;
+  width: 90%;
+}
+
+@media (min-width: 768px) {
+  .film-title {
+    font-size: 64px;
+  }
+  .film-description {
+    flex-direction: row;
+    gap: unset;
+  }
+  .imgFilm {
+    width: 40%;
+  }
+  .film {
+    width: 70%;
+  }
+  .main-description {
+    font-size: 24px;
+  }
+  .film-synopsis {
+    font-size: 20px;
+  }
+
+  .film-buttons input {
+    width: 250px;
+    font-size: 24px;
+    padding: 0px;
   }
 }

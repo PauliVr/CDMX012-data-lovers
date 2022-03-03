@@ -24,6 +24,7 @@ import {
   searchData,
   filterVehicles,
   sortVehicle,
+  descriptionFilm,
 } from './data.js';
 
 //Variables
@@ -42,6 +43,15 @@ const button = document.querySelector('#btn');
 const buttonReset = document.querySelector('#btnReset');
 const yearMax = 2014,
   yearMin = yearMax - 28; //select year
+
+// (function () {
+//   const filmsTop = films
+//     .filter((film) => film.rt_score >= 90)
+//     .sort((film1, film2) => film2.rt_score - film1.rt_score)
+//     .slice(0, 10);
+// return filmsTop;
+// })();
+
 const directors = [
     'Hayao Miyazaki',
     'Isao Takahata',
@@ -116,9 +126,9 @@ if (bodyContent.classList.contains('films')) {
       sortFilms.querySelector('option').selected = true;
       loadFilm(data.films);
     });
-  }
 
-  //carga peliculas
+    containerFilmClick();
+  }
 
   //graficas de fun-facts
 
@@ -133,11 +143,14 @@ function loadFilm(films) {
     //console.log(film);
     const divMovie = document.createElement('div');
     divMovie.className = 'movie';
+    divMovie.dataset.id = film.id;
     const imgMovie = document.createElement('img');
     imgMovie.src = film.poster;
     imgMovie.alt = film.title;
+    imgMovie.classList.add('pointerEvent');
     const divTitle = document.createElement('div');
     divTitle.className = 'title';
+    divTitle.classList.add('pointerEvent');
     const pTitle = document.createElement('p');
     pTitle.innerText = film.title;
 
@@ -146,6 +159,105 @@ function loadFilm(films) {
     divMovie.appendChild(divTitle);
     containerFilm.appendChild(divMovie);
   });
+}
+
+if (bodyContent.classList.contains('movieSelected')) {
+  const filmSelect = descriptionFilm();
+  const characters = document.querySelector('.characters-content');
+  const locations = document.querySelector('.locations-content');
+  const vehicles = document.querySelector('.vehicles-content');
+  const charactersTitle = document.querySelector('.filmTitle-characters');
+  const locationsTitle = document.querySelector('.filmTitle-locations');
+  const vehiclesTitle = document.querySelector('.filmTitle-vehicles');
+  renderDescription(filmSelect);
+  document.querySelector('#btnCharacters').addEventListener('click', () => {
+    locations.innerHTML = '';
+    vehicles.innerHTML = '';
+    locationsTitle.style.display = 'none';
+    vehiclesTitle.style.display = 'none';
+    const titleCharacter = document.querySelector('.filmTitle-characters');
+    titleCharacter.style.display = 'block';
+    renderCharacters(filmSelect.people);
+  });
+
+  document.querySelector('#btnLocations').addEventListener('click', () => {
+    characters.innerHTML = '';
+    vehicles.innerHTML = '';
+    charactersTitle.style.display = 'none';
+    vehiclesTitle.style.display = 'none';
+    const titleLocations = document.querySelector('.filmTitle-locations');
+    titleLocations.style.display = 'block';
+    loadPlaces(filmSelect.locations);
+  });
+
+  document.querySelector('#btnVehicles').addEventListener('click', () => {
+    characters.innerHTML = '';
+    locations.innerHTML = '';
+    charactersTitle.style.display = 'none';
+    locationsTitle.style.display = 'none';
+    const titleVehicles = document.querySelector('.filmTitle-vehicles');
+    titleVehicles.style.display = 'block';
+    loadVehicles(filmSelect.vehicles);
+  });
+}
+
+function containerFilmClick() {
+  containerFilm.addEventListener('click', (e) => {
+    if (e.target.classList.contains('movie')) {
+      console.log(e.target);
+      const id = e.target.dataset.id;
+      const url = new URL('http://127.0.0.1:5501/src/movie.html');
+      url.searchParams.append('id', id);
+      window.location.href = url.href;
+      console.log(url);
+    }
+  });
+}
+
+//cargar personajes
+function renderDescription(film) {
+  const titlefilm = document.querySelector('.titleFilm');
+  const containerDescript = document.createElement('div');
+  containerDescript.className = 'title-container';
+  const film_synopsis = document.createElement('div');
+  film_synopsis.className = 'film-description';
+  const film_Title = document.createElement('h1');
+  film_Title.className = 'film-title';
+  film_Title.innerText = film.title;
+  const divImgFilm = document.createElement('div');
+  divImgFilm.classList = 'imgFilm';
+  const imgTitle = document.createElement('img');
+  imgTitle.className = 'film';
+  imgTitle.src = film.poster;
+  const main_descript = document.createElement('ul');
+  main_descript.className = 'main-description';
+  const director = document.createElement('li');
+  director.className = 'director';
+  director.innerText = `Director: ${film.director}`;
+  const producer = document.createElement('li');
+  producer.className = 'producer';
+  producer.innerText = `Producer: ${film.producer}`;
+  const date = document.createElement('li');
+  date.className = 'release-date';
+  date.innerText = `Release date: ${film.release_date}`;
+  const raiting = document.createElement('li');
+  raiting.className = 'raiting-score';
+  raiting.innerText = `Raiting score: ${film.rt_score}`;
+  const synop = document.createElement('p');
+  synop.className = 'film-synopsis';
+  synop.innerText = film.description;
+
+  containerDescript.appendChild(film_Title);
+  divImgFilm.appendChild(imgTitle);
+  film_synopsis.appendChild(divImgFilm);
+  film_synopsis.appendChild(main_descript);
+  main_descript.appendChild(director);
+  main_descript.appendChild(producer);
+  main_descript.appendChild(date);
+  main_descript.appendChild(raiting);
+  main_descript.appendChild(synop);
+  titlefilm.appendChild(containerDescript);
+  titlefilm.appendChild(film_synopsis);
 }
 
 function loadCharts() {

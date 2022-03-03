@@ -74,6 +74,24 @@ export function sortFilm(s, films) {
   return sortedFilms;
 }
 
+//pelicula especifica 
+  
+//guardar la pelicula que tenga el id de la url
+export function descriptionFilm() {
+  let filmSelected;
+  const urlParams = new URLSearchParams(window.location.search);
+  // const pelicula = data.films.filter((film) => film.id === urlParams.get('id'));
+  // console.log(pelicula);
+  // renderDescription(pelicula[0]);
+
+  data.films.forEach((film) => {
+    if (film.id === urlParams.get('id')) {
+      filmSelected = film;
+    }
+  });
+  return filmSelected;
+}
+
 //Calculo Directores
 export function calculusDirector(films) {
   let res = [];
@@ -133,20 +151,21 @@ export function calculusProducer(films) {
   producersChart.push(toruPercent);
   producersChart.push(toshioPercent);
   producersChart.push(yoshiakiPercent);
+  console.log(producersChart);
 
   return producersChart;
 }
 
 //locations
 
-export function calculusTerrain(films) {
+export function calculusTerrain() {
   let arrayPercent = [];
   let terrainHill = 0,
     terrainsCount = 0;
   let porcentaje;
   let totalTerrain, percent;
 
-  films.forEach((film) => {
+  data.films.forEach((film) => {
     film.locations.forEach((location) => {
       if (location.terrain === 'Hill') {
         terrainHill = terrainHill + 1;
@@ -161,11 +180,11 @@ export function calculusTerrain(films) {
   percent = 100 - porcentaje;
   arrayPercent.push(porcentaje);
   arrayPercent.push(percent);
-
+  console.log(arrayPercent);
   return arrayPercent;
 }
 
-export function calculusClimate(films) {
+export function calculusClimate() {
   let arrayClimates = [];
   let cTodo = 0,
     cDry = 0,
@@ -186,7 +205,7 @@ export function calculusClimate(films) {
     totalClimate,
     totalPercent;
 
-  films.forEach((film) => {
+  data.films.forEach((film) => {
     film.locations.forEach((location) => {
       if (location.climate === 'TODO') {
         cTodo += 1;
@@ -236,6 +255,7 @@ export function calculusClimate(films) {
     percentWet +
     percentWarm +
     percentDamp;
+  console.log(arrayClimates);
 
   return arrayClimates;
 }

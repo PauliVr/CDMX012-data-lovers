@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="movieSelected">
+  <header>
+    <div class="nav-bar">
+      <img class='logo-g' src='https://i.postimg.cc/FHMnx5gB/custom-Logo.png' alt='logo-totoro' />
+      <ul class="menus">
+        <div class="enlaces">
+          <li><a href="/src/index.html">Home</a></li>
+          <li><a href="/src/characters.html">Characters</a></li>
+          <li><a href="/src/locations.html">Locations</a></li>
+          <li><a href="/src/vehicles.html">Vehicles</a></li>
+        </div>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="titleFilm container">
+      <!-- <div class="title-container">
+        <img class="home" src="./assets/Home.png" alt='home' />
+        <h1 class="film-title">Castle in the Sky</h1>
+      </div>
+      <div class="film-description">
+        <img class="film" src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg"
+          alt="" />
+        <ul class="main-description">
+          <li class="director">Director:</li>
+          <li class="producer">Producer:</li>
+          <li class="release-date">Release date:</li>
+          <li class="raiting-score">Raiting score:</li>
+          <p class="film-synopsis">The orphan Sheeta inherited a mysterious crystal that links her to the mythical
+            sky-kingdom of Laputa.
+            With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of
+            the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science
+            to make himself ruler of the world.
+          </p>
+        </ul>
+      </div> -->
+    </section>
+
+    <section class="buttons">
+      <div class="film-buttons">
+        <section class="input-c">
+          <input class="characters" id="btnCharacters" type="submit" value="Characters" />
+        </section>
+
+        <section class="input-c">
+          <input class="locations" id="btnLocations" type="submit" value="Locations" />
+        </section>
+
+        <section class="input-c">
+          <input class="vehicles" id="btnVehicles" type="submit" value="Vehicles" />
+        </section>
+      </div>
+    </section>
+
+    <section class="films-sections">
+      <section class="characters-container container">
+        <h1 class=" filmTitle-characters" style="display: none;">Characters</h1>
+        <div class="characters-content "></div>
+      </section>
+
+      <section class="locations container">
+        <h1 class=" filmTitle-locations" style="display: none;">Locations</h1>
+        <div class="locations-content"> </div>
+      </section>
+
+      <section class="vehicles container">
+        <h1 class=" filmTitle-vehicles" style="display: none;">Vehicles</h1>
+        <div class="vehicles-content">
+        </div>
+      </section>
+    </section>
+
+
+
+  </main>
+  <footer>
+    <section class=" footer-nav">
+      <p>©Studio Ghibli All Rigths Reserved</p>
+      <div class="autors">
+        <p>Created by</p>
+        <p>Paulette Villegas y Saraí González</p>
+      </div>
+    </section>
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>
