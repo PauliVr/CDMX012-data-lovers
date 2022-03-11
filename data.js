@@ -5,13 +5,13 @@ let hayao = 0,
   total = 0,
   result = 0;
 
-export const datosBusqueda = {
+export const searchDataFilms = {
   year: '',
   director: '',
   producer: '',
 };
 
-export const datosBusquedaLocations = {
+export const searchDataLocations = {
   filmName: '',
   climate: '',
   terrain: '',
@@ -34,22 +34,22 @@ export function filterFilm() {
 }
 
 export function filterYear(film) {
-  if (datosBusqueda.year) {
-    return film.release_date === datosBusqueda.year;
+  if (searchDataFilms.year) {
+    return film.release_date === searchDataFilms.year;
   }
   return film;
 }
 
 function filterDirector(film) {
-  if (datosBusqueda.director) {
-    return film.director === datosBusqueda.director;
+  if (searchDataFilms.director) {
+    return film.director === searchDataFilms.director;
   }
   return film;
 }
 
 function filterProducer(film) {
-  if (datosBusqueda.producer) {
-    return film.producer === datosBusqueda.producer;
+  if (searchDataFilms.producer) {
+    return film.producer === searchDataFilms.producer;
   }
   return film;
 }
@@ -74,8 +74,8 @@ export function sortFilm(s, films) {
   return sortedFilms;
 }
 
-//pelicula especifica 
-  
+//pelicula especifica
+
 //guardar la pelicula que tenga el id de la url
 export function descriptionFilm() {
   let filmSelected;
@@ -151,7 +151,6 @@ export function calculusProducer(films) {
   producersChart.push(toruPercent);
   producersChart.push(toshioPercent);
   producersChart.push(yoshiakiPercent);
-  console.log(producersChart);
 
   return producersChart;
 }
@@ -180,7 +179,6 @@ export function calculusTerrain() {
   percent = 100 - porcentaje;
   arrayPercent.push(porcentaje);
   arrayPercent.push(percent);
-  console.log(arrayPercent);
   return arrayPercent;
 }
 
@@ -255,7 +253,6 @@ export function calculusClimate() {
     percentWet +
     percentWarm +
     percentDamp;
-  console.log(arrayClimates);
 
   return arrayClimates;
 }
@@ -273,7 +270,7 @@ export function filterClimate(films) {
   let arrayClim = [];
   films.forEach((film) => {
     film.locations.forEach((location) => {
-      if (location.climate === datosBusquedaLocations.climate) {
+      if (location.climate === searchDataLocations.climate) {
         arrayClim.push(location);
       }
     });
@@ -285,7 +282,7 @@ export function filterTerrain(films) {
   let arrayTerrain = [];
   films.forEach((film) => {
     film.locations.forEach((location) => {
-      if (location.terrain === datosBusquedaLocations.terrain) {
+      if (location.terrain === searchDataLocations.terrain) {
         arrayTerrain.push(location);
       }
     });
@@ -297,8 +294,8 @@ export function filterTerrain(films) {
 export function filterMovie(films) {
   let result;
   result = films.filter((film) => {
-    if (datosBusquedaLocations.filmName) {
-      return film.title === datosBusquedaLocations.filmName;
+    if (searchDataLocations.filmName) {
+      return film.title === searchDataLocations.filmName;
     }
     return films;
   });
