@@ -160,9 +160,7 @@ function containerFilmClick() {
   containerFilm.addEventListener('click', (e) => {
     if (e.target.classList.contains('movie')) {
       const id = e.target.dataset.id;
-      const url = new URL(
-        'https://paulivr.github.io/CDMX012-data-lovers/movie.html'
-      );
+      const url = new URL('https://paulivr.github.io/CDMX012-data-lovers/movie.html');
       url.searchParams.append('id', id);
       window.location.href = url.href;
     }

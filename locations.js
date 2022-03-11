@@ -17,6 +17,7 @@ const sortLocations = document.querySelector('#sort-locations');
 const buttonLoc = document.querySelector('#btn_loc');
 const buttonLocRes = document.querySelector('#btn_loc_reset');
 const containerLocation = document.querySelector('.locations-content');
+const body = document.querySelector('.bodyLocations');
 
 const nameFilms = [
     'Castle in the Sky',
@@ -77,69 +78,71 @@ const ctc = document.getElementById('myChartThree');
 // let locations = [];
 let allLocations = [];
 
-loadLocation(films);
-fillSelectLocations();
-buttonLocRes.addEventListener('click', () => {
-  loadLocation(data.films);
-  selectedMovie.querySelector('option').selected = true;
-  selectedClimate.querySelector('option').selected = true;
-  selectedTerrain.querySelector('option').selected = true;
+if (body) {
+  loadLocation(films);
+  fillSelectLocations();
+  buttonLocRes.addEventListener('click', () => {
+    loadLocation(data.films);
+    selectedMovie.querySelector('option').selected = true;
+    selectedClimate.querySelector('option').selected = true;
+    selectedTerrain.querySelector('option').selected = true;
+    recibeAllLocations();
+  });
+
+  loadChartsTerrain();
+  loadChartsClimate();
+
+  sortLocations.addEventListener('change', (e) => {
+    let sortL = e.target.value;
+    allLocations = sortLoc(sortL, allLocations);
+    loadPlaces(allLocations);
+  });
+
   recibeAllLocations();
-});
 
-loadChartsTerrain();
-loadChartsClimate();
+  // Pelicula
+  selectedMovie.addEventListener('change', (e) => {
+    selectedClimate.querySelector('option').selected = true;
+    selectedTerrain.querySelector('option').selected = true;
 
-sortLocations.addEventListener('change', (e) => {
-  let sortL = e.target.value;
-  allLocations = sortLoc(sortL, allLocations);
-  loadPlaces(allLocations);
-});
+    searchDataLocations.climate = '';
+    searchDataLocations.terrain = '';
 
-recibeAllLocations();
+    searchDataLocations.filmName = e.target.value;
+    films = filterMovie(films);
+  });
 
-// Pelicula
-selectedMovie.addEventListener('change', (e) => {
-  selectedClimate.querySelector('option').selected = true;
-  selectedTerrain.querySelector('option').selected = true;
+  // Clima
+  selectedClimate.addEventListener('change', (e) => {
+    searchDataLocations.climate = e.target.value;
+    allLocations = [];
+    allLocations = filterClimate(films);
+  });
 
-  searchDataLocations.climate = '';
-  searchDataLocations.terrain = '';
+  // Terreno
+  selectedTerrain.addEventListener('change', (e) => {
+    searchDataLocations.terrain = e.target.value;
+    allLocations = [];
+    allLocations = filterTerrain(films);
+  });
 
-  searchDataLocations.filmName = e.target.value;
-  films = filterMovie(films);
-});
-
-// Clima
-selectedClimate.addEventListener('change', (e) => {
-  searchDataLocations.climate = e.target.value;
-  allLocations = [];
-  allLocations = filterClimate(films);
-});
-
-// Terreno
-selectedTerrain.addEventListener('change', (e) => {
-  searchDataLocations.terrain = e.target.value;
-  allLocations = [];
-  allLocations = filterTerrain(films);
-});
-
-buttonLoc.addEventListener('click', () => {
-  if (searchDataLocations) {
-    if (
-      searchDataLocations.filmName &&
-      searchDataLocations.climate === '' &&
-      searchDataLocations.terrain === ''
-    ) {
-      // console.log(films);
-      loadLocation(films);
-    } else {
-      // Load locations only
-      // console.log(allLocations);
-      loadPlaces(allLocations);
+  buttonLoc.addEventListener('click', () => {
+    if (searchDataLocations) {
+      if (
+        searchDataLocations.filmName &&
+        searchDataLocations.climate === '' &&
+        searchDataLocations.terrain === ''
+      ) {
+        // console.log(films);
+        loadLocation(films);
+      } else {
+        // Load locations only
+        // console.log(allLocations);
+        loadPlaces(allLocations);
+      }
     }
-  }
-});
+  });
+}
 
 //LoadLocations
 

@@ -7,6 +7,7 @@ const filtType = document.querySelector('#selected-type');
 const sortVehicles = document.querySelector('#sort-vehicles');
 const btnReset = document.querySelector('#btn_veh_reset');
 const btnFiltVehicles = document.querySelector('#btn_veh');
+const body = document.querySelector('.bodyVehicles');
 
 let sorted;
 let allVehicles = [];
@@ -19,36 +20,38 @@ const vehicleClass = [
   'War plane',
 ];
 
-recibeAllVehicles();
-loadVehicles(allVehicles);
-fillSelectVehicles();
-
-sortVehicles.addEventListener('change', (e) => {
-  // if (searchData.type === '') {
-  let sortV = e.target.value;
-  allVehicles = sortVehicle(sortV, allVehicles);
-  loadVehicles(allVehicles);
-  // }
-});
-
-filtType.addEventListener('change', (e) => {
-  searchData.type = e.target.value;
-  sorted = filterVehicles(allVehicles);
-});
-
-btnFiltVehicles.addEventListener('click', () => {
-  if (searchData) {
-    loadVehicles(sorted);
-  }
-});
-
-btnReset.addEventListener('click', () => {
-  loadVehicles(allVehicles);
-  searchData.type = '';
-  filtType.querySelector('option').selected = true;
-  sortVehicles.querySelector('option').selected = true;
+if (body) {
   recibeAllVehicles();
-});
+  loadVehicles(allVehicles);
+  fillSelectVehicles();
+
+  sortVehicles.addEventListener('change', (e) => {
+    // if (searchData.type === '') {
+    let sortV = e.target.value;
+    allVehicles = sortVehicle(sortV, allVehicles);
+    loadVehicles(allVehicles);
+    // }
+  });
+
+  filtType.addEventListener('change', (e) => {
+    searchData.type = e.target.value;
+    sorted = filterVehicles(allVehicles);
+  });
+
+  btnFiltVehicles.addEventListener('click', () => {
+    if (searchData) {
+      loadVehicles(sorted);
+    }
+  });
+
+  btnReset.addEventListener('click', () => {
+    loadVehicles(allVehicles);
+    searchData.type = '';
+    filtType.querySelector('option').selected = true;
+    sortVehicles.querySelector('option').selected = true;
+    recibeAllVehicles();
+  });
+}
 
 export function loadVehicles(vehicles) {
   cleanVehicleHTML(vehiclesContainer);

@@ -10,6 +10,8 @@ const vehicles = document.querySelector('.vehicles-content');
 const charactersTitle = document.querySelector('.filmTitle-characters');
 const locationsTitle = document.querySelector('.filmTitle-locations');
 const vehiclesTitle = document.querySelector('.filmTitle-vehicles');
+
+
 renderDescription(filmSelect);
 document.querySelector('#btnCharacters').addEventListener('click', () => {
   locations.innerHTML = '';

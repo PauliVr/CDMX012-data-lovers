@@ -1,4 +1,3 @@
-import data from './data/ghibli/ghibli.js';
 import {
   calculusAge,
   calculusGender,
@@ -19,63 +18,65 @@ const ctchar = document.getElementById('funFactChartGen');
 let genderValues = ['Male', 'Female'];
 let percentageGenValues = calculusGender();
 let barColors = ['#b91d47', '#00aba9'];
-let containerChar = document.querySelector('.characters-content');
 let btnChar = document.querySelector('#btn_filter');
+const body = document.querySelector('.charactersBody');
 
-renderCharacters(listCharacters());
+if (body) {
+  renderCharacters(listCharacters());
+  btnChar.addEventListener('click', btn_filterGender);
 
-btnChar.addEventListener('click', btn_filterGender);
+  // realizar el chart de gender: cuántos personajes femeninos y masculinos hay en las pelis ghibli
 
-// realizar el chart de gender: cuántos personajes femeninos y masculinos hay en las pelis ghibli
+  //Chart.defaults.font.size = 16;
+  // eslint-disable-next-line no-undef
+  new Chart(ctchar, {
+    type: 'pie',
+    data: {
+      labels: genderValues,
+      datasets: [
+        {
+          backgroundColor: barColors,
 
-//Chart.defaults.font.size = 16;
-// eslint-disable-next-line no-undef
-new Chart(ctchar, {
-  type: 'pie',
-  data: {
-    labels: genderValues,
-    datasets: [
-      {
-        backgroundColor: barColors,
+          data: percentageGenValues,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+    },
+  });
 
-        data: percentageGenValues,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-  },
-});
+  // realizar el chart de age: cuántos personajes femeninos y masculinos hay en las pelis ghibli
 
-// realizar el chart de age: cuántos personajes femeninos y masculinos hay en las pelis ghibli
+  //Chart.defaults.font.size = 16;
+  // eslint-disable-next-line no-undef
+  new Chart(ctcharacter, {
+    type: 'pie',
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          backgroundColor: barColors2,
 
-//Chart.defaults.font.size = 16;
-// eslint-disable-next-line no-undef
-new Chart(ctcharacter, {
-  type: 'pie',
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        backgroundColor: barColors2,
-
-        data: yValues,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
       },
     },
-  },
-});
+  });
+}
 
 // funcion para las tarjetas de presentacion de personajes
 
 export function renderCharacters(list) {
+  let containerChar = document.querySelector('.characters-content');
   containerChar.innerHTML = '';
   list.forEach((character) => {
     const divCharacter = document.createElement('div');
